@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Engineering Departments</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        padding: 40px 0;
+      }
+
+      .dept-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .dept-title {
+        text-align: center;
+        margin-bottom: 40px;
+        color: #343a40;
+        position: relative;
+      }
+
+      .dept-title:after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, #007bff, #6610f2);
+      }
+
+      .dept-box {
+        height: 200px;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 30px;
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .dept-box:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dept-box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .dept-content {
+        position: relative;
+        z-index: 2;
+        padding: 20px;
+      }
+
+      .dept-box h3 {
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      .dept-box p {
+        font-size: 14px;
+        opacity: 0.9;
+      }
+
+      .ce {
+        background: linear-gradient(135deg, #ff9966, #ff5e62);
+      }
+
+      .cse {
+        background: linear-gradient(135deg, #2193b0, #6dd5ed);
+      }
+
+      .ece {
+        background: linear-gradient(135deg, #834d9b, #d04ed6);
+      }
+
+      .eee {
+        background: linear-gradient(135deg, #4776e6, #8e54e9);
+      }
+
+      .me {
+        background: linear-gradient(135deg, #11998e, #38ef7d);
+      }
+
+      .ise {
+        background: linear-gradient(135deg, #f12711, #f5af19);
+      }
+
+      .icon {
+        font-size: 48px;
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container dept-container">
+      <h1 class="dept-title">Departments Events</h1>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="dept-box ce">
+            <div class="dept-content">
+              <div class="icon">🏗️</div>
+              <h3>CE</h3>
+              <p>Civil Engineering</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="dept-box cse">
+            <div class="dept-content">
+              <div class="icon">💻</div>
+              <h3>CSE</h3>
+              <p>Computer Science Engineering</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="dept-box ece">
+            <div class="dept-content">
+              <div class="icon">📱</div>
+              <h3>ECE</h3>
+              <p>Electronics & Communication Engineering</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="dept-box eee">
+            <div class="dept-content">
+              <div class="icon">⚡</div>
+              <h3>EEE</h3>
+              <p>Electrical & Electronics Engineering</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="dept-box me">
+            <div class="dept-content">
+              <div class="icon">⚙️</div>
+              <h3>ME</h3>
+              <p>Mechanical Engineering</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="dept-box ise">
+            <div class="dept-content">
+              <div class="icon">🔄</div>
+              <h3>ISE</h3>
+              <p>Information Science Engineering</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

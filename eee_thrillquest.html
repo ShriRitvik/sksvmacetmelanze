@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Melanze - 2025</title>
+  <!-- Bootstrap CSS from CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;900&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #1abc9c;
+      --accent-color: #e74c3c;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .navbar {
+      background-color: var(--primary-color);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, var(--primary-color), #34495e);
+      color: white;
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("images/3.jpg") center/cover;
+      opacity: 0.2;
+      z-index: 0;
+    }
+
+    .countdown-timer {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .countdown-timer .number {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+
+    .countdown-timer .text {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .event-card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .speaker-card {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .speaker-card img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .footer {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 50px 0 20px;
+    }
+
+    .section-title {
+      position: relative;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+
+    .section-title:after {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 3px;
+      background-color: var(--secondary-color);
+      margin-top: 15px;
+    }
+
+    .btn-primary {
+      background-color: var(--secondary-color);
+      border-color: var(--secondary-color);
+      padding: 10px 25px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #16a085;
+      border-color: #16a085;
+      transform: translateY(-2px);
+    }
+
+    .schedule-item {
+      border-left: 3px solid var(--secondary-color);
+      padding-left: 20px;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .schedule-item:before {
+      content: "";
+      position: absolute;
+      left: -10px;
+      top: 0;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      background-color: var(--secondary-color);
+      border: 3px solid white;
+    }
+
+    .testimonial-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+    }
+
+    .pricing-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .pricing-card .price {
+      font-size: 3rem;
+      font-weight: bold;
+      color: var(--secondary-color);
+      margin: 20px 0;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 30px;
+    }
+
+    .feature-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-list li i {
+      color: var(--secondary-color);
+      margin-right: 10px;
+    }
+
+    .testimonial-card .quote {
+      font-size: 1.2rem;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-card .author {
+      display: flex;
+      align-items: center;
+    }
+
+    .testimonial-card .author img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .sponsor-logo {
+      height: 100px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.7;
+      transition: all 0.3s;
+    }
+
+    .sponsor-logo:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 50px 0;
+      }
+
+      .countdown-timer .number {
+        font-size: 1.5rem;
+      }
+    }
+
+
+
+    .event-section {
+      margin-top: 40px;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+    }
+
+    .event-banner {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 15px rgba(0, 255, 255, 0.15);
+    }
+
+    h2.section-title {
+      color: #1100ff;
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: 0 0 5px #00ffee;
+    }
+
+    h4 {
+      color: #ff0000;
+      margin-top: 25px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li::marker {
+      color: #ff009d94;
+    }
+
+    .contact-box {
+      background: rgba(0, 255, 255, 0.08);
+      padding: 15px;
+      border-left: 4px solid #000000;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .register-btn {
+      background-color: #ff0000;
+      color: #000;
+      font-weight: 600;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .register-btn:hover {
+      background-color: #ff0000;
+      color: #ff0000;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 576px) {
+      .event-section {
+        padding: 25px;
+      }
+
+      .event-banner {
+        max-height: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg sticky-top bg-dark navbar-dark">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="images/logo.png" alt="Melanze Logo" width="40" height="40" class="me-2" style="border-radius:80px;">
+        MELANZE 2025
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="aboutus.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="allevents.html">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#venue">Venue</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <!-- Hero Section -->
+
+  <div class="container" style="box-shadow: #e74c3c;">
+    <div class="event-section text-left" style="border: #e74c3c;">
+      <!-- Event Banner Image -->
+      <img src="images/3.jpg" alt="Techno Clash 2025 Banner" class="event-banner img-fluid" />
+
+      <!-- Event Name -->
+      <h2 class="section-title "> Thrill Quest </h2>
+
+      <!-- Event Date -->
+      <h4 class="contact-box text-left" style="max-width: 400px;">📅 Event Date:</h4>
+      <p>May 23 & 24, 2025</p>
+
+
+
+      <!-- Rules and Guidelines -->
+      <h4 class=" contact-box text-left" style="max-width: 400px;">📜 Rules & Guidelines:</h4>
+      <ul class="text-left " style="max-width: 600px;">
+        <li> Group with a maximum 4 members.</li>
+        <li>The event consists of various rounds like Blind fold, Recall Rush, Clue Hunter, Hidden Message, and Tie Up.
+          </b> </li>
+        <li>The duration of each activity will be announced on the event day.
+        </li>
+        <li>The organizer's decision is final.</li>
+      </ul>
+      <h4 class=" contact-box text-left" style="max-width: 400px;">In case of tie</h4>
+      <p>The tie breaking task will be conducted between teams.</p>
+      <!-- Registration Fee -->
+      <h4 class=" contact-box text-left" style="max-width: 400px;">💰 Registration Fee:</h4>
+      <p>₹150/- Per Team</p>
+      <h4 class=" contact-box text-left" style="max-width: 400px;">Prize Pool</h4>
+      <p>
+        🏆 Exclusive Prizes + Certificates</p>
+
+      <!-- Contact Details -->
+      <h4 class=" contact-box text-left" style="max-width: 400px;">📞 Event Coordinators</h4>
+      <div class="row justify-content-center">
+        <div class="col-md-5 contact-box mx-2">
+          <strong> Vedant
+          </strong><br />
+          Phone: +91 9901274391
+        </div>
+        <div class="col-md-5 contact-box mx-2">
+          <strong>Harsha </strong><br />
+          Phone: +91 9663339705
+        </div>
+        <div class="col-md-5 contact-box mx-2">
+          <strong> Priyanka. M </strong><br />
+          Phone: +91 8660033560
+        </div>
+        <div class="col-md-5 contact-box mx-2">
+          <strong>Bhagyashri. K </strong><br />
+          Phone: +91 7892874375
+        </div>
+      </div>
+
+      <h4 class=" contact-box text-left" style="max-width: 400px;">Staff Coordinators </h4>
+      <div class="row justify-content-center">
+        <div class="col-md-5 contact-box mx-2">
+          <strong> Prof.Shivalingappa D.R
+          </strong><br />
+          Phone: +91 9606677131
+        </div>
+        <div class="col-md-5 contact-box mx-2">
+          <strong>Prof.Manjunath.H</strong><br />
+          Phone: +91 9886178019
+        </div>
+
+      </div>
+
+
+
+
+      <!-- Register Now Button -->
+      <a href="https://forms.gle/WAvP11JF6fBcZ4pa9" class="btn btn-outline-primary">Register Now</a>
+      <a href="allevents.html" class="btn btn-outline-primary">Back to Events</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- About Section -->
+
+
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mb-12 mb-md-12">
+          <h5 class="mb-4">MELANZE 2025</h5>
+          <p style="
+           font-weight: bold">
+            Smt Kamala And Sri Venkappa M. Agadi College of Engineering &
+            Technology
+          <p>SH 6, Gadag, Lakshmeshwar, Wadeyar
+            Mallapur,Lakshmeshwar, Karnataka 582116</p>
+          </p>
+          <div class="social-links mt-4">
+            <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in fa-lg"></i></a>
+            <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-youtube fa-lg"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="mt-4 mb-4 bg-white" />
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start">
+          <p class="mb-0">&copy; 2025 MELANZE. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <p class="mb-0">
+            Designed by <i class="fas fa-heart text-danger"></i> Shrikanth
+            Malligawad
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JavaScript Bundle with Popper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script>
+    // Countdown Timer
+    function updateCountdown() {
+      const eventDate = new Date("May 23, 2025 09:00:00").getTime();
+      const now = new Date().getTime();
+      const timeLeft = eventDate - now;
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+    }
+
+    // Initial call and then update every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute("href");
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 70,
+            behavior: "smooth",
+          });
+
+          // Close mobile menu if open
+          const navbarCollapse = document.querySelector(".navbar-collapse");
+          if (navbarCollapse.classList.contains("show")) {
+            navbarCollapse.classList.remove("show");
+          }
+        }
+      });
+    });
+
+    // Add active class to navbar items on scroll
+    window.addEventListener("scroll", function () {
+      let current = "";
+      const sections = document.querySelectorAll("section");
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      document.querySelectorAll(".navbar-nav .nav-link").forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

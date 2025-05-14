@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Global Styles */
+    :root {
+      --primary-color: #0d6efd;
+      --secondary-color: #6c757d;
+      --tertiary-color: #212529;
+      --light-color: #f8f9fa;
+      --accent-color: #ffc107;
+    }
+
+    /* Section Styling */
+    .team-section {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      /* Deep blue gradient */
+      padding: 80px 0;
+      color: #ffffff;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .team-section p {
+      color: #ddd;
+      font-size: 1.1rem;
+    }
+
+    /* Team Card */
+    .team-card {
+      background: rgba(255, 255, 255, 0.05);
+      /* Glassy background */
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .team-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Image */
+    .team-img-container {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .team-card:hover .team-img {
+      transform: scale(1.05);
+    }
+
+    /* Social Icons Overlay */
+    .team-social {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      opacity: 0;
+      display: flex;
+      gap: 10px;
+      transition: opacity 0.3s ease;
+    }
+
+    .team-card:hover .team-social {
+      opacity: 1;
+    }
+
+    .social-icon {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      padding: 10px;
+      color: #fff;
+      font-size: 16px;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .social-icon:hover {
+      background-color: #ffffff;
+      color: #2c5364;
+    }
+
+    /* Text Info */
+    .team-info {
+      padding: 20px;
+    }
+
+    .team-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: #fff;
+    }
+
+    .team-position {
+      font-size: 1rem;
+      color: #9ed8ff;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .team-info p {
+      color: #ccc;
+      font-size: 0.95rem;
+    }
+
+    /* From Uiverse.io by zebra76966 */
+    button {
+      border: none;
+    }
+
+    .c-button {
+      background: linear-gradient(140deg, rgba(75, 118, 200, 1) 0%, rgba(31, 70, 145, 1) 100%);
+      border-radius: 45px;
+      font-size: 25px;
+      text-align: left;
+      padding: 11px 0px 11px 0px;
+      border: 4px solid rgb(37, 37, 37) !important;
+      border-style: outset;
+      box-shadow: -6px -5px 18px rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+    }
+
+    .c-button .c-main {
+      border-radius: 45px;
+      color: rgba(255, 255, 255, 1);
+      padding: 11px 25px 11px 2px;
+      box-shadow: inset 0px 0px 5px rgba(17, 17, 17, 0);
+      transition: all 0.5s ease-in-out;
+      border: 1px solid transparent;
+    }
+
+    .c-ico .c-blur {
+      background: linear-gradient(318deg, rgba(75, 118, 200, 1) 0%, rgba(31, 70, 145, 1) 100%);
+      border-radius: 100%;
+      margin-left: 0;
+      padding: 8px 23px;
+      filter: blur(1px);
+      text-align: center;
+    }
+
+    .c-ico {
+      position: relative;
+      margin-right: 20px;
+    }
+
+    .c-ico .ico-text {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Hovering */
+
+    .c-button .c-main:hover {
+      box-shadow: inset 0px 0px 5px rgba(17, 17, 17, 0.6);
+      border: 1px solid rgba(26, 26, 26, 0.5);
+      color: rgba(255, 255, 255, 0.5);
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg sticky-top bg-dark navbar-dark">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="images/logo.png" alt="Melanze Logo" width="40" height="40" class="me-2" style="border-radius:80px;">
+        MELANZE 2025
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="aboutus.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="allevents.html">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#venue">Venue</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Hero Section -->
+
+  <!-- About Section -->
+  <section class="about-section py-5">
+    <div class="container py-5">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="about-img">
+            <img src="images/college1.jpeg.jpg" alt="College Campus" class="img-fluid"
+              style="height: 350px; border-radius: 50px;;" />
+            <div class="experience-marker"></div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="about-content">
+            <h2 class="section-tit">Smt Kamala And Sri Venkappa M. Agadi College of Engineering &
+              Technology </h2>
+            <p class="about-text">
+            <p style="color: #003cff; font-family: Georgia, 'Times New Roman', Times, serif;">(APPROVED BY AICTE, New
+              Delhi AFFILIATED TO
+              Visvesvaraya Technology University, Belagavi,
+              ACCREDITED BY NAAC B++)</p>
+            <span class="highlight">SKSVMACET is an institution founded by the Founder Chairman, the Late, Sri Venkappa
+              M. Agadi, with the dream of transforming his birthplace from a tiny hamlet into a center of excellence.
+              Lakshmeshwar is located near the twin city Hubballi-Dharwad, an epitome of culture as well as an emerging
+              business and technological hub.
+
+              </p>
+              <a href="https://agadiengcollege.com/" class="btn btn-outline-primary">Visit Website</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission and Vision Section -->
+
+
+  <!-- Campus Gallery Section -->
+
+
+  <!-- Faculty Team Section -->
+  <section class="team-section">
+    <div class="container">
+      <h2 class="section-title text-center mx-auto">Our Team</h2>
+      <p class="text-center mb-5">
+
+      </p>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="team-card">
+            <div class="team-img-container">
+              <img src="images/a22.jpeg" alt="Dr. Lisa Patel" class="team-img" />
+              <div class="team-social">
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+            <div class="team-info">
+              <h4 class="team-name">Dr. Parashuram Baraki
+
+              </h4>
+              <div class="team-position">Principal & Mentor</div>
+              <p>
+                E-mail: parashuram.baraki@gmail.com<br>
+
+                Mobile No: +91 9686042385
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="team-card">
+            <div class="team-img-container">
+              <img src="images/a2.jpg" alt="Dr. Sarah Johnson" class="team-img" />
+              <div class="team-social">
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+            <div class="team-info">
+              <h4 class="team-name">Dr. Girish G. Y</h4>
+              <div class="team-position">Cheif Organizer</div>
+              <p>
+                Email: girish.math@agadiengcollege.com
+
+                Mobile No: +91 9844950991
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="team-card">
+            <div class="team-img-container">
+              <img src="images/a3.jpg" alt="Prof. Michael Chen" class="team-img" />
+              <div class="team-social">
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+            <div class="team-info">
+              <h4 class="team-name"> Dr. Subhash Meti
+
+              </h4>
+              <div class="team-position">Dean of Academic</div>
+              <p>
+                E-mail: subhash.ece@agadiengcollege.com
+
+                Mobile No: +91 9845675725
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="team-card">
+            <div class="team-img-container">
+              <img src="images/a1.jpg" alt="Dr. Robert Williams" class="team-img" />
+              <div class="team-social" style="">
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+            <div class="team-info">
+              <h4 class="team-name">Dr. Arunkumar Joshi</h4>
+              <div class="team-position">Cheif Coordinator</div>
+              <p>
+                E-mail: arunj.cse@agadiengcollege.com
+
+                Mobile No: +91 9663579700
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="team-card">
+            <div class="team-img-container">
+              <img src="images/Shridevi-G.jpg" alt="Dr. Emily Rodriguez" class="team-img" />
+              <div class="team-social">
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+            <div class="team-info">
+              <h4 class="team-name"> Mrs. Shridevi Ganiger
+
+              </h4>
+              <div class="team-position">Cheif Coordinator</div>
+              <p>
+                E-mail: shridevig.eee@agadiengcollege.com<br> Mobile No: +91 8105572501 </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="team-card">
+            <div class="team-img-container">
+              <img src="images/Amarappa-P.jpg" alt="Prof. James Wilson" class="team-img" />
+              <div class="team-social">
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+            <div class="team-info">
+              <h4 class="team-name">Mr. Amarappa Pagi
+
+              </h4>
+              <div class="team-position">Cheif Coordinator</div>
+              <p>
+                E-mail: amarappa.ece@agadiengcollege.com<br> Mobile No: +91 9448666880 </p>
+
+
+              </p>
+            </div>
+          </div>
+        </div>
+
+
+
+        <a href="allevents.html">
+          <button class="c-button">
+            <span class="c-main">
+              <span class="c-ico"><span class="c-blur"></span> <span class="ico-text">+</span></span>
+              Events
+            </span>
+          </button>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script>
+    // Countdown Timer
+    function updateCountdown() {
+      const eventDate = new Date("May 23, 2025 09:00:00").getTime();
+      const now = new Date().getTime();
+      const timeLeft = eventDate - now;
+
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+    }
+
+    // Initial call and then update every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute("href");
+        const targetElement = document.querySelector(targetId);
+
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 70,
+            behavior: "smooth",
+          });
+
+          // Close mobile menu if open
+          const navbarCollapse = document.querySelector(".navbar-collapse");
+          if (navbarCollapse.classList.contains("show")) {
+            navbarCollapse.classList.remove("show");
+          }
+        }
+      });
+    });
+
+    // Add active class to navbar items on scroll
+    window.addEventListener("scroll", function () {
+      let current = "";
+      const sections = document.querySelectorAll("section");
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      document.querySelectorAll(".navbar-nav .nav-link").forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+
+
+</body>
+
+</html>

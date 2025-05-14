@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events Grid</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(206, 188, 155, 1) 0%,
+          rgba(85, 63, 50, 1) 51%,
+          rgba(42, 31, 25, 1) 100%
+        );
+        overflow-x: hidden;
+      }
+
+      h1#text3d {
+        margin: 60px auto 40px auto;
+        font-family: "Lato", sans-serif;
+        font-size: 6rem;
+        text-align: center;
+        text-transform: uppercase;
+        line-height: 1.2;
+        color: #70869d;
+        letter-spacing: 0.15em;
+        position: relative;
+        z-index: 2;
+        text-shadow: -1px -1px 1px #efede3, 0px 1px 0 #2e2e2e, 0px 2px 0 #2c2c2c,
+          0px 3px 0 #2a2a2a, 0px 4px 0 #282828, 0px 5px 0 #262626,
+          0px 6px 0 #242424, 0px 7px 0 #222, 0px 8px 0 #202020,
+          0px 9px 0 #1e1e1e, 0px 10px 0 #1c1c1c, 0px 11px 0 #1a1a1a,
+          0px 12px 0 #181818, 0px 13px 0 #161616, 0px 14px 0 #141414,
+          0px 15px 0 #121212, 2px 20px 5px rgba(0, 0, 0, 0.9),
+          5px 23px 5px rgba(0, 0, 0, 0.3), 8px 27px 8px rgba(0, 0, 0, 0.5),
+          8px 28px 35px rgba(0, 0, 0, 0.9);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px 60px 20px;
+        display: grid;
+        gap: 40px;
+      }
+
+      .event {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+
+      .event:hover {
+        transform: scale(1.01);
+      }
+
+      .event-image {
+        grid-column: span 6;
+      }
+
+      .event-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .event-info {
+        grid-column: span 6;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .event-title {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .event-meta {
+        font-size: 15px;
+        color: #777;
+        margin-bottom: 15px;
+      }
+
+      .event-description {
+        font-size: 16px;
+        color: #444;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .event {
+          grid-template-columns: 1fr;
+        }
+
+        .event-image,
+        .event-info {
+          grid-column: span 12;
+        }
+
+        .event-info {
+          padding: 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1#text3d {
+          font-size: 3rem;
+          padding: 0 10px;
+        }
+
+        .event-title {
+          font-size: 22px;
+        }
+
+        .event-description {
+          font-size: 15px;
+        }
+      }
+
+      .btn-3d {
+        display: inline-block;
+        margin-top: 50px;
+        padding: 12px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #ff0000;
+        text-transform: uppercase;
+        text-decoration: none;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 50px;
+        box-shadow: 0 4px 0 #0252ff, 0 8px 20px rgba(97, 57, 57, 0.4);
+        backdrop-filter: blur(6px); /* for glassy effect */
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .btn-3d:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 0 #be0000, 0 12px 25px rgba(0, 0, 0, 0.5);
+        background: rgba(255, 0, 0, 0.1);
+        border-color: rgba(47, 0, 255, 0.7);
+      }
+
+      .btn-3d:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 0 #666, 0 4px 12px rgba(0, 0, 0, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="text3d">Civil Engineering</h1>
+
+    <div class="container">
+      <!-- Event 1 -->
+      <div class="event">
+        <div class="event-image">
+          <img src="images/rodies.png" alt="Event Image" />
+        </div>
+        <div class="event-info">
+          <div class="event-title">Roadies 5.O</div>
+          <div class="event-meta">
+            📍 Civil Department,SKSVMACET,Lakshmeswar | 📅 May 23&24, 2025
+          </div>
+          <div class="event-description">
+            Experience modern art, sculpture exhibits, and hands-on creative
+            workshops from artists around the globe.
+          </div>
+          <a href="#" class="btn-3d">Register Now</a>
+        </div>
+      </div>
+
+      <!-- Event 2 -->
+      <div class="event">
+        <div class="event-image">
+          <img src="https://via.placeholder.com/600x400" alt="Event Image" />
+        </div>
+        <div class="event-info">
+          <div class="event-title">Tech Expo 2025</div>
+          <div class="event-meta">📍 Tokyo, Japan | 📅 August 2–4, 2025</div>
+          <div class="event-description">
+            Join the future of innovation with new gadgets, robotics showcases,
+            and keynote speakers from the tech world.
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
